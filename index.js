@@ -1,10 +1,15 @@
-var questions = require ("inquirer");
+var questions = require("inquirer");
 var fs = require("fs");
-var api = require ("./utils/api.js");
+var api = require("./utils/api.js");
 
 
- questions 
+questions
     .prompt([
+        {
+            type: "input",
+            message: "User Github email",
+            name: "userEmail"
+        },
         {
             type: "input",
             message: "Project Title",
@@ -15,12 +20,6 @@ var api = require ("./utils/api.js");
             message: "Description",
             name: "descrip"
         },
-        {   
-            type: "input",
-            message: "Table of Contents",
-            name: "tableContents"
-
-        },
         {
             type: "input",
             message: "Insallation",
@@ -28,13 +27,15 @@ var api = require ("./utils/api.js");
         },
         {
             type: "input",
-            message: "Usage",
-            name: "usageElm"
+            message: "Table of Contents",
+            name: "tableContents"
+
         },
         {
-            type: "input",
+            type: "list",
             message: "License",
-            name: "licenseElm"
+            name: "licenseElm",
+            choices: ["MIT License 2.0", "Apache License 2.0", "none"]
         },
         {
             type: "input",
@@ -59,30 +60,30 @@ var api = require ("./utils/api.js");
         {
             type: "input",
             message: "User GitHub profile picutre",
-            name: "userPicture" 
+            name: "userPicture"
         },
         {
             type: "input",
-            message: "User Github email",
-            name: "userEmail"
+            message: "Usage",
+            name: "usageElm"
         }
-        
+
     ])
 
 
-    .then(function(response){
-        var fName = response.projectName.toLowerCase().split(" ").join('') + ".json";
-        fs.writeFile(fName, JSON.stringify(fName, null, "\t"), function(err){
-            if(err){
-               return console.log(err); 
+    .then(function (data) {
+        var fName = data.userEmail.toLowerCase().split(" ").join('') + ".json";
+        fs.writeFile(fName, JSON.stringify(fName, null, "\t"), function (err) {
+            if (err) {
+                return console.log(err);
             }
             console.log("sucess");
-            
+
         });
 
-        
+
     });
-   
+
 
 // function writeToFile(fileName, data) {
 // }
@@ -91,4 +92,5 @@ var api = require ("./utils/api.js");
 
 // }
 
-init();
+// init();
+
