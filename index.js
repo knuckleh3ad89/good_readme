@@ -1,14 +1,14 @@
 var questions = require("inquirer");
 var fs = require("fs");
 var api = require("./utils/api.js");
-
+var generateMarkdown = require("./utils/generateMarkdown");
 
 questions
     .prompt([
         {
             type: "input",
-            message: "User Github email",
-            name: "userEmail"
+            message: "User Github name",
+            name: "userName"
         },
         {
             type: "input",
@@ -22,35 +22,19 @@ questions
         },
         {
             type: "input",
-            message: "Insallation",
-            name: "install"
+            message: "Table of Contents",
+            name: "tableContents"
         },
         {
             type: "input",
-            message: "Table of Contents",
-            name: "tableContents"
+            message: "Insallation",
+            name: "install"
 
         },
         {
-            type: "list",
-            message: "License",
-            name: "licenseElm",
-            choices: ["MIT License 2.0", "Apache License 2.0", "none"]
-        },
-        {
             type: "input",
-            message: "Badges",
-            name: "badgesElm"
-        },
-        {
-            type: "input",
-            message: "Contributing",
-            name: "contrib"
-        },
-        {
-            type: "input",
-            message: "Tests",
-            name: "testElm"
+            message: "Usage",
+            name: "usageElm"
         },
         {
             type: "input",
@@ -59,28 +43,36 @@ questions
         },
         {
             type: "input",
-            message: "User GitHub profile picutre",
-            name: "userPicture"
+            message: "Tests",
+            name: "testElm"
         },
         {
             type: "input",
-            message: "Usage",
-            name: "usageElm"
+            message: "Contributing",
+            name: "contrib"
+        },
+        {
+            type: "list",
+            message: "License",
+            name: "licenseElm",
+            choices: ["MIT License 2.0", "Apache License 2.0", "none"]
         }
 
     ])
+    .then(function (answers) {
 
+         api.getUser(answers.userName).then(function(response) {
+        
+            fs.writeFile('README.md', generateMarkdown({...answers, ...response.data}), function (err) {
+                if (err) {
+                    return console.log(err);
+                }
+                console.log("sucess");
+    
+            });
 
-    .then(function (data) {
-        var fName = data.userEmail.toLowerCase().split(" ").join('') + ".json";
-        fs.writeFile(fName, JSON.stringify(fName, null, "\t"), function (err) {
-            if (err) {
-                return console.log(err);
-            }
-            console.log("sucess");
-
-        });
-
+    });
+        
 
     });
 
