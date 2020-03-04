@@ -11,9 +11,9 @@ function generateMarkdown(data) {
  ${data.tableContents}
  
 ## Installation
-
+\`\`\`
  ${data.install}
- 
+ \`\`\`
 ## Usage
  ${data.usageElm}
  
@@ -23,10 +23,11 @@ function generateMarkdown(data) {
 
  ## License
  ${data.licenseElm}
-
+ 
  ## Tests
+ \`\`\`
  ${data.testElm}
-
+ \`\`\`
  ## Questions
 
  ![${data.avatar_url}](${data.avatar_url})
