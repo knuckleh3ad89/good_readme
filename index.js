@@ -23,32 +23,30 @@ questions
         {
             type: "input",
             message: "Table of Contents",
-            name: "tableContents"
+            name: "tableContents",
+            default: "none"
         },
         {
             type: "input",
-            message: "Insallation",
-            name: "install"
+            message: "What command should be runto install dependencies?",
+            name: "install",
+            default: "npm i"
 
         },
         {
             type: "input",
-            message: "Usage",
+            message: "What does the user need to know about using the repo?",
             name: "usageElm"
         },
         {
             type: "input",
-            message: "Questions",
-            name: "questionElm"
+            message: "What command should be run to run test?",
+            name: "testElm",
+            default: "npm run test"
         },
         {
             type: "input",
-            message: "Tests",
-            name: "testElm"
-        },
-        {
-            type: "input",
-            message: "Contributing",
+            message: "What does the user need to know about contributing to the repo?",
             name: "contrib"
         },
         {
@@ -61,18 +59,20 @@ questions
     ])
     .then(function (answers) {
 
-         api.getUser(answers.userName).then(function(response) {
-        
-            fs.writeFile('README.md', generateMarkdown({...answers, ...response.data}), function (err) {
-                if (err) {
-                    return console.log(err);
-                }
-                console.log("sucess");
-    
+        api.getUser(answers.userName)
+
+            .then(function (response) {
+
+                fs.writeFile('README.md', generateMarkdown({ ...answers, ...response.data }), function (err) {
+                    if (err) {
+                        return console.log(err);
+                    }
+                    console.log("sucess");
+
+                });
+
             });
 
-    });
-        
 
     });
 

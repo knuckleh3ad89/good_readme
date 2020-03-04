@@ -1,34 +1,39 @@
 
-# sample project
+# New portofolio
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
  ## Despcription
- short for sample
+ Showing my work
 
  ## Table of Contents
- check
+ none
+ 
 
 ### Installation
- none
+
+ npm i
+ 
 
 
 ## Usage
- none
+ save your work
  
 
  ## Contributing
- anthony
+ commit your work to github
 
  ## License
- MIT License 2.0
-
- ## Tests
  none
 
+ ## Tests
+ npm run test
+
  ## Questions
- nothing
+
+ undefined
  ![https://avatars2.githubusercontent.com/u/58190322?v=4](https://avatars2.githubusercontent.com/u/58190322?v=4)
 
+ If you have any questions about the repo, or any issue you can contact me [Anthony Guerrero](https://api.github.com/users/anthonyguerrero) directly.
 
 
- 
