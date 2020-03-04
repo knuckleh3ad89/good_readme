@@ -1,7 +1,7 @@
 function generateMarkdown(data) {
   return `
+  
 # ${data.projectName}
-
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
  ## Despcription
@@ -10,13 +10,10 @@ function generateMarkdown(data) {
  ## Table of Contents
  ${data.tableContents}
  
-
-### Installation
+## Installation
 
  ${data.install}
  
-
-
 ## Usage
  ${data.usageElm}
  
@@ -32,10 +29,9 @@ function generateMarkdown(data) {
 
  ## Questions
 
- ${data.questionElm}
  ![${data.avatar_url}](${data.avatar_url})
 
- If you have any questions about the repo, or any issue you can contact me [Anthony Guerrero](https://api.github.com/users/anthonyguerrero) directly.
+ If you have any questions about the repo, or any issue you can contact me at [Anthony Guerrero](https://api.github.com/users/anthonyguerrero) directly.
 
 
 `

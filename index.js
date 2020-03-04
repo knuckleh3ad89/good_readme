@@ -28,7 +28,7 @@ questions
         },
         {
             type: "input",
-            message: "What command should be runto install dependencies?",
+            message: "What command should be run to install dependencies?",
             name: "install",
             default: "npm i"
 
