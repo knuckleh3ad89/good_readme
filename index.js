@@ -53,11 +53,24 @@ questions
             type: "list",
             message: "License",
             name: "licenseElm",
-            choices: ["MIT License 2.0", "Apache License 2.0", "none"]
+            choices: [
+                {
+                    name: "MIT License",
+                    value: 'MIT',
+                },
+                {
+                    name: "Apache License 2.0",
+                    value: 'Apache',
+                },
+                {
+                    name: "None",
+                    value: 'none',
+                },
+            ]
         }
 
     ])
-    .then(function (answers) {
+    .then((answers) => {
 
         api.getUser(answers.userName)
 
@@ -72,17 +85,5 @@ questions
                 });
 
             });
-
-
     });
-
-
-// function writeToFile(fileName, data) {
-// }
-
-// function init() {
-
-// }
-
-// init();
 

@@ -2,7 +2,7 @@ function generateMarkdown(data) {
   return `
   
 # ${data.projectName}
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![License: ${data.licenseElm}](https://img.shields.io/badge/License-${data.licenseElm}-blue.svg)](#license)
 
  ## Despcription
  ${data.descrip}
@@ -21,7 +21,7 @@ function generateMarkdown(data) {
  ## Contributing
  ${data.contrib}
 
- ## License
+ ## [License] (#license)
  ${data.licenseElm}
  
  ## Tests
@@ -32,12 +32,12 @@ function generateMarkdown(data) {
 
  ![${data.avatar_url}](${data.avatar_url})
 
- If you have any questions about the repo, or any issue you can contact me at [Anthony Guerrero](https://api.github.com/users/anthonyguerrero) directly.
+ If you have any questions about the repo, or any issue you can contact me at [${data.name}](${data.html_url}) directly.
 
 
 `
- 
-;
+
+    ;
 }
 
 module.exports = generateMarkdown;
