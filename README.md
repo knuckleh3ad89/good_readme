@@ -3,7 +3,7 @@
 # Sports
 [![License: Apache](https://img.shields.io/badge/License-Apache-blue.svg)](#license)
 
- ## Despcription
+ ## Description
  soccer
 
  ## Table of Contents
